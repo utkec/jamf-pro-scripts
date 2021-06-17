@@ -4,6 +4,6 @@
 user=`stat -f%Su /dev/console`
 
 #Returns OIDCProvider
-return=`dscl . read /Users/$user dsAttrTypeStandard:OIDCProvider`
+return=`dscl . read /Users/$user dsAttrTypeStandard:OIDCProvider | awk '{print $2}'`
 
-echo "<result>$return</results>"
+echo "<result>$return</result>"
